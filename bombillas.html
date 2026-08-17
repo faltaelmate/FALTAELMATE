@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bombillas - Falta el Mate — Bombillas de acero inoxidable de alta calidad">
+  <title>Bombillas | Falta el Mate</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="topbar">
+    <span>🚚 Envíos a todo el país, Argentina</span>
+    <span class="separator">|</span>
+    <span>✓ Pagos seguros</span>
+    <span class="separator">|</span>
+    <span>💬 Atención personalizada</span>
+  </div>
+
+  <header class="header">
+    <a class="brand" href="index.html" aria-label="Falta el Mate - inicio">
+      <img src="assets/logo.png" alt="Falta el Mate">
+    </a>
+
+    <nav class="nav" id="mainNav">
+      <a href="index.html#inicio">INICIO</a>
+      <a href="index.html#productos">PRODUCTOS</a>
+      <a href="index.html#nosotros">NOSOTROS</a>
+      <a href="index.html#faq">PREGUNTAS FRECUENTES</a>
+      <a href="index.html#contacto">CONTACTO</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" aria-label="Buscar" onclick="toggleSearch()">⌕</button>
+      <a class="icon-btn" href="index.html#contacto" aria-label="Contacto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10c0-2 1.5-3 3-3h4c1.5 0 3 1 3 3v6a4 4 0 0 1-4 4h-2a4 4 0 0 1-4-4v-6z"></path><line x1="14" y1="7" x2="19" y2="2"></line></svg></a>
+      <a class="cart" href="carrito.html" aria-label="Carrito"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg><span>0</span></a>
+      <button class="menu-btn" aria-label="Abrir menú" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <div class="search-box" id="searchBox">
+    <input id="searchInput" type="search" placeholder="Buscar mates, bombillas, termos..." oninput="handleSearchInput()" onkeydown="handleSearchKeydown(event)">
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <main>
+    <section class="product-page">
+      <div class="product-header">
+        <h1>BOMBILLAS</h1>
+        <div class="ornament"><span></span>🍃<span></span></div>
+        <p class="subtitle">Bombillas de acero inoxidable premium</p>
+      </div>
+
+      <div class="product-showcase">
+        <div class="product-image-large">
+          <img src="assets/bombilla.png" alt="Bombilla - Falta el Mate">
+        </div>
+        <div class="product-description">
+          <h2>Bombillas de calidad superior</h2>
+          <p>Nuestras bombillas son de acero inoxidable de alta calidad, cómodas y duraderas. Disponemos de diferentes estilos para elegir el que más te guste. Cada bombilla está diseñada para darte la mejor experiencia.</p>
+          
+          <div class="product-details">
+            <div class="detail-item">
+              <h3>Material</h3>
+              <p>Acero inoxidable 100% resistente</p>
+            </div>
+            <div class="detail-item">
+              <h3>Comodidad</h3>
+              <p>Diseño ergonómico para los labios</p>
+            </div>
+            <div class="detail-item">
+              <h3>Durabilidad</h3>
+              <p>Larga vida útil y fácil de limpiar</p>
+            </div>
+          </div>
+
+          <div class="product-actions">
+            <a class="primary-btn" href="index.html#contacto">Comprar →</a>
+            <a class="primary-btn" href="index.html#contacto" style="background: #68705a;">Agregar al carrito</a>
+            <a class="secondary-btn" href="index.html#productos">← Volver a categorías</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="models-section">
+      <h2>Nuestros Modelos</h2>
+      <div class="models-grid">
+        <div class="model-card">
+          <div class="model-image">
+            <img src="assets/bombilla.png" alt="Bombilla Clásica Plateada">
+          </div>
+          <h3>Bombilla Clásica Plateada</h3>
+          <p class="model-category">Acero inoxidable 100%</p>
+          <p class="model-price-tag">$450</p>
+          <ul class="model-specs">
+            <li>Filtro fino tradicional</li>
+            <li>Diseño ergonómico</li>
+            <li>Fácil de limpiar</li>
+          </ul>
+          <a href="bombilla-detalle.html?id=clasica-plateada" class="model-btn">Comprar</a>
+          <a href="#" onclick="addModelToCart(event,'clasica-plateada','bombilla','Bombilla Clásica Plateada','Acero inoxidable 100%',450,'assets/bombilla.png')" class="model-btn-secondary">Agregar al carrito</a>
+        </div>
+
+        <div class="model-card">
+          <div class="model-image">
+            <img src="assets/bombilla.png" alt="Bombilla Dorada Premium">
+          </div>
+          <h3>Bombilla Dorada Premium</h3>
+          <p class="model-category">Con acabado dorado</p>
+          <p class="model-price-tag">$650</p>
+          <ul class="model-specs">
+            <li>Acabado elegante y brillante</li>
+            <li>Filtro premium</li>
+            <li>Resistente al desgaste</li>
+          </ul>
+          <a href="bombilla-detalle.html?id=dorada-premium" class="model-btn">Comprar</a>
+          <a href="#" onclick="addModelToCart(event,'dorada-premium','bombilla','Bombilla Dorada Premium','Con acabado dorado',650,'assets/bombilla.png')" class="model-btn-secondary">Agregar al carrito</a>
+        </div>
+
+        <div class="model-card">
+          <div class="model-image">
+            <img src="assets/bombilla.png" alt="Bombilla Desarmable">
+          </div>
+          <h3>Bombilla Desarmable</h3>
+          <p class="model-category">Sistema desmontable</p>
+          <p class="model-price-tag">$550</p>
+          <ul class="model-specs">
+            <li>Se desmonta para limpiar</li>
+            <li>Filtro reemplazable</li>
+            <li>Mayor durabilidad</li>
+          </ul>
+          <a href="bombilla-detalle.html?id=desarmable" class="model-btn">Comprar</a>
+          <a href="#" onclick="addModelToCart(event,'desarmable','bombilla','Bombilla Desarmable','Sistema desmontable',550,'assets/bombilla.png')" class="model-btn-secondary">Agregar al carrito</a>
+        </div>
+
+        <div class="model-card">
+          <div class="model-image">
+            <img src="assets/bombilla.png" alt="Bombilla Corta Ergonómica">
+          </div>
+          <h3>Bombilla Corta Ergonómica</h3>
+          <p class="model-category">Tamaño compacto</p>
+          <p class="model-price-tag">$380</p>
+          <ul class="model-specs">
+            <li>Perfecta para viajes</li>
+            <li>Cómoda en los labios</li>
+            <li>Filtro fino</li>
+          </ul>
+          <a href="bombilla-detalle.html?id=corta-ergonomica" class="model-btn">Comprar</a>
+          <a href="#" onclick="addModelToCart(event,'corta-ergonomica','bombilla','Bombilla Corta Ergonómica','Tamaño compacto',380,'assets/bombilla.png')" class="model-btn-secondary">Agregar al carrito</a>
+        </div>
+
+        <div class="model-card">
+          <div class="model-image">
+            <img src="assets/bombilla.png" alt="Bombilla Larga Deluxe">
+          </div>
+          <h3>Bombilla Larga Deluxe</h3>
+          <p class="model-category">Edición premium</p>
+          <p class="model-price-tag">$750</p>
+          <ul class="model-specs">
+            <li>Extra larga (30cm)</li>
+            <li>Filtro ultra fino</li>
+            <li>Acabado pulido brillante</li>
+          </ul>
+          <a href="bombilla-detalle.html?id=larga-deluxe" class="model-btn">Comprar</a>
+          <a href="#" onclick="addModelToCart(event,'larga-deluxe','bombilla','Bombilla Larga Deluxe','Edición premium',750,'assets/bombilla.png')" class="model-btn-secondary">Agregar al carrito</a>
+        </div>
+
+        <div class="model-card">
+          <div class="model-image">
+            <img src="assets/bombilla.png" alt="Bombilla Clásica Mate">
+          </div>
+          <h3>Bombilla Clásica Mate</h3>
+          <p class="model-category">Acabado mate</p>
+          <p class="model-price-tag">$480</p>
+          <ul class="model-specs">
+            <li>Diseño minimalista</li>
+            <li>Acabado mate antirreflectante</li>
+            <li>Peso ligero</li>
+          </ul>
+          <a href="bombilla-detalle.html?id=clasica-mate" class="model-btn">Comprar</a>
+          <a href="#" onclick="addModelToCart(event,'clasica-mate','bombilla','Bombilla Clásica Mate','Acabado mate',480,'assets/bombilla.png')" class="model-btn-secondary">Agregar al carrito</a>
+        </div>
+
+        <div class="model-card">
+          <div class="model-image">
+            <img src="assets/bombilla.png" alt="Bombilla Profesional">
+          </div>
+          <h3>Bombilla Profesional</h3>
+          <p class="model-category">Para usuarios exigentes</p>
+          <p class="model-price-tag">$850</p>
+          <ul class="model-specs">
+            <li>Filtro de doble malla</li>
+            <li>Resistencia extrema</li>
+            <li>Garantía de por vida</li>
+          </ul>
+          <a href="bombilla-detalle.html?id=profesional" class="model-btn">Comprar</a>
+          <a href="#" onclick="addModelToCart(event,'profesional','bombilla','Bombilla Profesional','Para usuarios exigentes',850,'assets/bombilla.png')" class="model-btn-secondary">Agregar al carrito</a>
+        </div>
+
+        <div class="model-card">
+          <div class="model-image">
+            <img src="assets/bombilla.png" alt="Bombilla Edición Limitada">
+          </div>
+          <h3>Bombilla Edición Limitada</h3>
+          <p class="model-category">Colección especial</p>
+          <p class="model-price-tag">$950</p>
+          <ul class="model-specs">
+            <li>Diseño exclusivo</li>
+            <li>Numerada y certificada</li>
+            <li>Ideal para coleccionistas</li>
+          </ul>
+          <a href="bombilla-detalle.html?id=edicion-limitada" class="model-btn">Comprar</a>
+          <a href="#" onclick="addModelToCart(event,'edicion-limitada','bombilla','Bombilla Edición Limitada','Colección especial',950,'assets/bombilla.png')" class="model-btn-secondary">Agregar al carrito</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related-products">
+      <h2>También te puede interesar</h2>
+      <div class="related-grid">
+        <a href="mates.html" class="related-card">
+          <img src="assets/mate.png" alt="Mates">
+          <h3>MATES</h3>
+          <p>Variedad de diseños</p>
+        </a>
+        <a href="termos.html" class="related-card">
+          <img src="assets/termo.png" alt="Termos">
+          <h3>TERMOS</h3>
+          <p>Mantiene el agua caliente</p>
+        </a>
+        <a href="combos.html" class="related-card">
+          <img src="assets/combo.png" alt="Combos">
+          <h3>COMBOS</h3>
+          <p>Pack completo de mate</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><img src="assets/logo.png" alt="Falta el Mate"><p>Una pasión que nos une.</p></div>
+    <div><h4>CONTACTO</h4><a href="mailto:faltaelmate@gmail.com">faltaelmate@gmail.com</a><a href="https://wa.me/542984155752" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:8px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.86 9.86 0 0 0 12.04 2m0 1.67c2.2 0 4.27.86 5.82 2.42a8.2 8.2 0 0 1 2.42 5.82c0 4.54-3.7 8.23-8.24 8.23a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.25-4.37c0-4.54 3.7-8.24 8.23-8.24M8.53 7.33c-.16 0-.43.06-.66.31-.22.25-.86.84-.86 2.05s.88 2.38 1 2.55c.13.17 1.72 2.72 4.23 3.7 2.09.83 2.51.66 2.97.62.46-.04 1.48-.6 1.69-1.19.21-.58.21-1.08.15-1.19-.06-.11-.23-.17-.48-.3-.25-.13-1.48-.73-1.71-.81-.23-.08-.4-.13-.57.13-.17.25-.65.81-.8.98-.15.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.49-1.4-1.74-.15-.25-.02-.38.11-.51.11-.11.25-.29.38-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.57-1.37-.79-1.87-.2-.48-.4-.42-.57-.43z"></path></svg>2984-155-752</a></div>
+    <div><h4>ENVÍOS</h4><p>Todo el país, Argentina</p><p>Origen: General Roca, Río Negro</p></div>
+    <div><h4>SEGUINOS</h4><a href="https://www.instagram.com/faltaelmate" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:8px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>@faltaelmate</a></div>
+  </footer>
+  <div class="copyright">© <span id="year"></span> Falta el Mate · General Roca, Río Negro, Argentina</div>
+
+  <script src="script.js"></script>
+  <script src="cart.js"></script>
+</body>
+</html>
