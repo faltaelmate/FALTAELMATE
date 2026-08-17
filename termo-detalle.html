@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Termo - Falta el Mate">
+  <title>Termo | Falta el Mate</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .bombilla-detail {
+      padding: 80px 7%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .bombilla-detail-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .bombilla-detail-image {
+      background: #f7f2ea;
+      border-radius: 16px;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 500px;
+    }
+    .bombilla-detail-image img {
+      max-width: 100%;
+      max-height: 450px;
+      width: 300px;
+      height: auto;
+      object-fit: cover;
+    }
+    .bombilla-detail-content h1 {
+      font: 600 50px/1 'Playfair Display', serif;
+      color: #2e382a;
+      margin: 0 0 20px;
+      letter-spacing: -1px;
+    }
+    .bombilla-detail-content .category {
+      font-size: 14px;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 0 0 30px;
+    }
+    .bombilla-detail-price {
+      font-size: 48px;
+      font-weight: 700;
+      color: #2e382a;
+      margin: 30px 0;
+      letter-spacing: 1px;
+    }
+    .bombilla-detail-description {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #555;
+      margin: 30px 0;
+      max-width: 500px;
+    }
+    .bombilla-features {
+      margin: 35px 0;
+    }
+    .bombilla-features h3 {
+      font-size: 16px;
+      color: #2e382a;
+      font-weight: 600;
+      margin: 0 0 20px;
+    }
+    .bombilla-features ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .bombilla-features li {
+      font-size: 15px;
+      color: #666;
+      padding: 10px 0;
+      padding-left: 30px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .bombilla-features li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #2e382a;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .bombilla-actions {
+      display: flex;
+      gap: 15px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f7f2ea;
+      border-radius: 24px;
+      padding: 8px 12px;
+      border: 2px solid #2e382a;
+    }
+    .quantity-btn {
+      background: none;
+      border: none;
+      color: #2e382a;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .2s;
+    }
+    .quantity-btn:hover {
+      transform: scale(1.2);
+      color: #68705a;
+    }
+    .quantity-value {
+      font-size: 16px;
+      font-weight: 600;
+      color: #2e382a;
+      min-width: 30px;
+      text-align: center;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #2e382a;
+      color: white;
+      border-radius: 28px;
+      padding: 16px 35px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-decoration: none;
+      cursor: pointer;
+      border: 0;
+      font-size: 15px;
+      transition: .2s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #1f281e;
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: #2e382a;
+      border: 2px solid #2e382a;
+      border-radius: 28px;
+      padding: 14px 30px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 15px;
+      transition: .2s;
+    }
+    .btn-secondary:hover {
+      background: #2e382a;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    @media(max-width: 900px) {
+      .bombilla-detail-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .bombilla-detail-image {
+        min-height: 350px;
+      }
+      .bombilla-detail-image img {
+        width: 250px;
+      }
+      .bombilla-detail-content h1 {
+        font-size: 38px;
+      }
+      .bombilla-detail-price {
+        font-size: 36px;
+      }
+      .bombilla-actions {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media(max-width: 680px) {
+      .bombilla-detail {
+        padding: 50px 5%;
+      }
+      .bombilla-detail-image {
+        min-height: 300px;
+        padding: 20px;
+      }
+      .bombilla-detail-image img {
+        width: 200px;
+      }
+      .bombilla-detail-content h1 {
+        font-size: 28px;
+      }
+      .bombilla-detail-content .category {
+        font-size: 12px;
+      }
+      .bombilla-detail-price {
+        font-size: 28px;
+      }
+      .bombilla-detail-description {
+        font-size: 14px;
+      }
+      .bombilla-features li {
+        font-size: 13px;
+      }
+      .btn-primary, .btn-secondary {
+        padding: 12px 24px;
+        font-size: 13px;
+      }
+      .bombilla-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+      .quantity-selector {
+        width: 100%;
+        justify-content: center;
+      }
+      .btn-primary, .btn-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <span>🚚 Envíos a todo el país, Argentina</span>
+    <span class="separator">|</span>
+    <span>✓ Pagos seguros</span>
+    <span class="separator">|</span>
+    <span>💬 Atención personalizada</span>
+  </div>
+
+  <header class="header">
+    <a class="brand" href="index.html" aria-label="Falta el Mate - inicio">
+      <img src="assets/logo.png" alt="Falta el Mate">
+    </a>
+
+    <nav class="nav" id="mainNav">
+      <a href="index.html#inicio">INICIO</a>
+      <a href="index.html#productos">PRODUCTOS</a>
+      <a href="index.html#nosotros">NOSOTROS</a>
+      <a href="index.html#faq">PREGUNTAS FRECUENTES</a>
+      <a href="index.html#contacto">CONTACTO</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" aria-label="Buscar" onclick="toggleSearch()">⌕</button>
+      <a class="icon-btn" href="index.html#contacto" aria-label="Contacto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10c0-2 1.5-3 3-3h4c1.5 0 3 1 3 3v6a4 4 0 0 1-4 4h-2a4 4 0 0 1-4-4v-6z"></path><line x1="14" y1="7" x2="19" y2="2"></line></svg></a>
+      <a class="cart" href="carrito.html" aria-label="Carrito"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg><span>0</span></a>
+      <button class="menu-btn" aria-label="Abrir menú" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <div class="search-box" id="searchBox">
+    <input id="searchInput" type="search" placeholder="Buscar mates, bombillas, termos..." oninput="handleSearchInput()" onkeydown="handleSearchKeydown(event)">
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <main>
+    <div class="bombilla-detail">
+      <div class="bombilla-detail-container">
+        <div class="bombilla-detail-image">
+          <img id="detailImage" src="assets/termo.png" alt="Termo">
+        </div>
+
+        <div class="bombilla-detail-content">
+          <h1 id="detailName">Termo</h1>
+          <p class="category" id="detailCategory">Categoría</p>
+
+          <div class="bombilla-detail-price" id="detailPrice">$0</div>
+
+          <p class="bombilla-detail-description" id="detailDescription">Descripción del producto</p>
+
+          <div class="bombilla-features">
+            <h3>Características principales</h3>
+            <ul id="detailFeatures"></ul>
+          </div>
+
+          <div class="bombilla-actions">
+            <div class="quantity-selector">
+              <button class="quantity-btn" onclick="decrementQuantity()">−</button>
+              <span class="quantity-value" id="quantityValue">1</span>
+              <button class="quantity-btn" onclick="incrementQuantity()">+</button>
+            </div>
+            <a href="#" onclick="goToCheckout(); return false;" class="btn-primary">Comprar →</a>
+            <a href="#" onclick="addCurrentToCart(); return false;" class="btn-primary" style="background: #68705a;">Agregar al carrito</a>
+            <a href="termos.html" class="btn-secondary">← Volver a termos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><img src="assets/logo.png" alt="Falta el Mate"><p>Una pasión que nos une.</p></div>
+    <div><h4>CONTACTO</h4><a href="mailto:faltaelmate@gmail.com">faltaelmate@gmail.com</a><a href="https://wa.me/542984155752" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:8px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.86 9.86 0 0 0 12.04 2m0 1.67c2.2 0 4.27.86 5.82 2.42a8.2 8.2 0 0 1 2.42 5.82c0 4.54-3.7 8.23-8.24 8.23a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.25-4.37c0-4.54 3.7-8.24 8.23-8.24M8.53 7.33c-.16 0-.43.06-.66.31-.22.25-.86.84-.86 2.05s.88 2.38 1 2.55c.13.17 1.72 2.72 4.23 3.7 2.09.83 2.51.66 2.97.62.46-.04 1.48-.6 1.69-1.19.21-.58.21-1.08.15-1.19-.06-.11-.23-.17-.48-.3-.25-.13-1.48-.73-1.71-.81-.23-.08-.4-.13-.57.13-.17.25-.65.81-.8.98-.15.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.49-1.4-1.74-.15-.25-.02-.38.11-.51.11-.11.25-.29.38-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.57-1.37-.79-1.87-.2-.48-.4-.42-.57-.43z"></path></svg>2984-155-752</a></div>
+    <div><h4>ENVÍOS</h4><p>Todo el país, Argentina</p><p>Origen: General Roca, Río Negro</p></div>
+    <div><h4>SEGUINOS</h4><a href="https://www.instagram.com/faltaelmate" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:8px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>@faltaelmate</a></div>
+  </footer>
+  <div class="copyright">© <span id="year"></span> Falta el Mate · General Roca, Río Negro, Argentina</div>
+
+  <script src="script.js"></script>
+  <script src="cart.js"></script>
+  <script>
+    let quantity = 1;
+
+    function incrementQuantity() {
+      quantity++;
+      document.getElementById('quantityValue').textContent = quantity;
+    }
+
+    function decrementQuantity() {
+      if (quantity > 1) {
+        quantity--;
+        document.getElementById('quantityValue').textContent = quantity;
+      }
+    }
+
+    function goToCheckout() {
+      const id = new URLSearchParams(window.location.search).get('id');
+      window.location.href = `checkout.html?product=${id}&quantity=${quantity}`;
+    }
+
+    function addCurrentToCart() {
+      const id = getParameterByName('id');
+      const termo = termos[id];
+      if (!termo) return;
+      addToCart({
+        id: id,
+        type: 'termo',
+        name: termo.name,
+        category: termo.category,
+        price: parseInt(termo.price.replace('$', ''), 10),
+        image: 'assets/termo.png',
+        quantity: quantity
+      });
+      showCartToast('✓ ' + termo.name + ' agregado al carrito');
+    }
+
+    // Base de datos de termos
+    const termos = {
+      'clasico-1l': {
+        name: 'Termo Clásico 1L',
+        category: 'Acero inoxidable',
+        price: '$700',
+        description: 'Un termo clásico de acero inoxidable con capacidad de 1 litro. Mantiene el agua caliente por horas, ideal para acompañarte durante todo el día.',
+        features: [
+          'Capacidad de 1 litro',
+          'Mantiene el calor por horas',
+          'Ideal para el día a día',
+          'Acero inoxidable resistente',
+          'Tapa hermética antiderrames'
+        ]
+      },
+      'termico-750': {
+        name: 'Termo Térmico 750ml',
+        category: 'Doble pared',
+        price: '$600',
+        description: 'Termo de doble pared con capacidad de 750ml. Su tecnología de aislación evita que el exterior transpire y mantiene la temperatura por más tiempo.',
+        features: [
+          'Aislación de doble pared',
+          'Tamaño compacto',
+          'No transpira por fuera',
+          'Fácil de transportar',
+          'Ideal para uso diario'
+        ]
+      },
+      'pico-cebador': {
+        name: 'Termo Pico Cebador',
+        category: 'Pico especial para mate',
+        price: '$650',
+        description: 'Diseñado especialmente para cebar mate con un chorro preciso y controlado. Su tapa hermética evita derrames durante el transporte.',
+        features: [
+          'Pico diseñado para cebar',
+          'Chorro preciso y controlado',
+          'Tapa hermética',
+          'Ideal para el mate tradicional',
+          'Fácil de servir'
+        ]
+      },
+      'cuero-reforzado': {
+        name: 'Termo Cuero Reforzado',
+        category: 'Funda de cuero',
+        price: '$850',
+        description: 'Termo revestido con una funda de cuero genuino que aporta mayor protección ante golpes y un estilo clásico argentino.',
+        features: [
+          'Funda de cuero genuino',
+          'Mayor protección ante golpes',
+          'Estilo clásico argentino',
+          'Acabado artesanal',
+          'Resistente y duradero'
+        ]
+      },
+      'compacto-500': {
+        name: 'Termo Compacto 500ml',
+        category: 'Tamaño viaje',
+        price: '$500',
+        description: 'Un termo compacto y liviano ideal para llevar en el bolso. Perfecto para viajes cortos y salidas donde el espacio es limitado.',
+        features: [
+          'Ideal para llevar en el bolso',
+          'Liviano y práctico',
+          'Perfecto para viajes cortos',
+          'Fácil de guardar',
+          'Diseño compacto'
+        ]
+      },
+      'deportivo': {
+        name: 'Termo Deportivo',
+        category: 'Antigolpes',
+        price: '$680',
+        description: 'Termo con recubrimiento antigolpes, pensado para acompañarte en actividades al aire libre sin miedo a caídas o golpes.',
+        features: [
+          'Recubrimiento antigolpes',
+          'Resistente a caídas',
+          'Ideal para actividades al aire libre',
+          'Agarre antideslizante',
+          'Construcción robusta'
+        ]
+      },
+      'acero-mate-negro': {
+        name: 'Termo Acero Mate Negro',
+        category: 'Acabado mate',
+        price: '$720',
+        description: 'Termo con acabado mate antihuellas y un diseño elegante y moderno. Resistente a rayones y con un estilo minimalista.',
+        features: [
+          'Acabado mate antihuellas',
+          'Diseño elegante y moderno',
+          'Resistente a rayones',
+          'Estilo minimalista',
+          'Fácil de limpiar'
+        ]
+      },
+      'premium-1-2l': {
+        name: 'Termo Premium 1.2L',
+        category: 'Mayor capacidad',
+        price: '$900',
+        description: 'Nuestro termo de mayor capacidad, con 1.2 litros, ideal para quienes necesitan agua caliente para todo el día. Acabado premium.',
+        features: [
+          'Capacidad de 1.2 litros',
+          'Mantiene el calor todo el día',
+          'Acabado premium',
+          'Ideal para jornadas largas',
+          'Máxima durabilidad'
+        ]
+      }
+    };
+
+    function getParameterByName(name) {
+      name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+      var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+      var results = regex.exec(location.search);
+      return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    function loadTermoDetails() {
+      const id = getParameterByName('id');
+      const termo = termos[id];
+
+      if (!termo) {
+        document.querySelector('.bombilla-detail-container').innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 60px 20px; color: #666;">Termo no encontrado.</p>';
+        return;
+      }
+
+      document.getElementById('detailName').textContent = termo.name;
+      document.getElementById('detailCategory').textContent = termo.category;
+      document.getElementById('detailPrice').textContent = termo.price;
+      document.getElementById('detailDescription').textContent = termo.description;
+
+      const featuresList = document.getElementById('detailFeatures');
+      termo.features.forEach(feature => {
+        const li = document.createElement('li');
+        li.textContent = feature;
+        featuresList.appendChild(li);
+      });
+
+      document.title = termo.name + ' | Falta el Mate';
+    }
+
+    document.addEventListener('DOMContentLoaded', loadTermoDetails);
+  </script>
+</body>
+</html>

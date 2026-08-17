@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Termos - Falta el Mate — Termos de doble pared que mantienen el agua caliente">
+  <title>Termos | Falta el Mate</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="topbar">
+    <span>🚚 Envíos a todo el país, Argentina</span>
+    <span class="separator">|</span>
+    <span>✓ Pagos seguros</span>
+    <span class="separator">|</span>
+    <span>💬 Atención personalizada</span>
+  </div>
+
+  <header class="header">
+    <a class="brand" href="index.html" aria-label="Falta el Mate - inicio">
+      <img src="assets/logo.png" alt="Falta el Mate">
+    </a>
+
+    <nav class="nav" id="mainNav">
+      <a href="index.html#inicio">INICIO</a>
+      <a href="index.html#productos">PRODUCTOS</a>
+      <a href="index.html#nosotros">NOSOTROS</a>
+      <a href="index.html#faq">PREGUNTAS FRECUENTES</a>
+      <a href="index.html#contacto">CONTACTO</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" aria-label="Buscar" onclick="toggleSearch()">⌕</button>
+      <a class="icon-btn" href="index.html#contacto" aria-label="Contacto">♙</a>
+      <a class="cart" href="index.html#productos" aria-label="Carrito">♧<span>0</span></a>
+      <button class="menu-btn" aria-label="Abrir menú" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="product-page">
+      <div class="product-header">
+        <h1>TERMOS</h1>
+        <div class="ornament"><span></span>🍃<span></span></div>
+        <p class="subtitle">Termos de doble pared de acero inoxidable</p>
+      </div>
+
+      <div class="product-showcase">
+        <div class="product-image-large">
+          <img src="assets/termo.png" alt="Termo - Falta el Mate">
+        </div>
+        <div class="product-description">
+          <h2>Termos que mantienen el calor</h2>
+          <p>Termos de doble pared y acero inoxidable que mantienen el agua caliente por horas. Perfectos para acompañarte en cualquier momento del día, ya sea en casa, en el trabajo o de viaje.</p>
+          
+          <div class="product-details">
+            <div class="detail-item">
+              <h3>Aislación</h3>
+              <p>Tecnología de doble pared térmica</p>
+            </div>
+            <div class="detail-item">
+              <h3>Capacidad</h3>
+              <p>Múltiples tamaños disponibles</p>
+            </div>
+            <div class="detail-item">
+              <h3>Versatilidad</h3>
+              <p>Perfecto para mate, café y té</p>
+            </div>
+          </div>
+
+          <div class="product-actions">
+            <a class="primary-btn" href="index.html#contacto">Comprar →</a>
+            <a class="primary-btn" href="index.html#contacto" style="background: #68705a;">Agregar al carrito</a>
+            <a class="secondary-btn" href="index.html#productos">← Volver a categorías</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="models-section">
+      <h2>Nuestros Termos</h2>
+      <div class="models-grid">
+        <div class="model-card">
+          <div class="model-image">
+            <img src="assets/termo.png" alt="Termo Clásico 1L">
+          </div>
+          <h3>Termo Clásico 1L</h3>
+          <p class="model-category">Acero inoxidable</p>
+          <p class="model-price-tag">$700</p>
+          <ul class="model-specs">
+            <li>Capacidad de 1 litro</li>
+            <li>Doble pared térmica</li>
+            <li>Ideal para todos los días</li>
+          </ul>
+          <a href="termo-detalle.html?id=clasico-1l" class="model-btn">Comprar</a>
+          <a href="#" onclick="addModelToCart(event,'clasico-1l','termo','Termo Clásico 1L','Acero inoxidable',700,'assets/termo.png')" class="model-btn-secondary">Agregar al carrito</a>
+        </div>
+
+        <div class="model-card">
+          <div class="model-image">
+            <img src="assets/termo.png" alt="Termo Térmico 750ml">
+          </div>
+          <h3>Termo Térmico 750ml</h3>
+          <p class="model-category">Doble pared</p>
+          <p class="model-price-tag">$600</p>
+          <ul class="model-specs">
+            <li>Formato compacto</li>
+            <li>Conserva la temperatura</li>
+            <li>Fácil de transportar</li>
+          </ul>
+          <a href="termo-detalle.html?id=termico-750" class="model-btn">Comprar</a>
+          <a href="#" onclick="addModelToCart(event,'termico-750','termo','Termo Térmico 750ml','Doble pared',600,'assets/termo.png')" class="model-btn-secondary">Agregar al carrito</a>
+        </div>
+
+        <div class="model-card">
+          <div class="model-image">
+            <img src="assets/termo.png" alt="Termo Pico Cebador">
+          </div>
+          <h3>Termo Pico Cebador</h3>
+          <p class="model-category">Pico especial para mate</p>
+          <p class="model-price-tag">$650</p>
+          <ul class="model-specs">
+            <li>Pico cebador de precisión</li>
+            <li>Acero inoxidable resistente</li>
+            <li>Práctico para cebar</li>
+          </ul>
+          <a href="termo-detalle.html?id=pico-cebador" class="model-btn">Comprar</a>
+          <a href="#" onclick="addModelToCart(event,'pico-cebador','termo','Termo Pico Cebador','Pico especial para mate',650,'assets/termo.png')" class="model-btn-secondary">Agregar al carrito</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related-products">
+      <h2>También te puede interesar</h2>
+      <div class="related-grid">
+        <a href="mates.html" class="related-card">
+          <img src="assets/mate.png" alt="Mates">
+          <h3>MATES</h3>
+          <p>Variedad de diseños</p>
+        </a>
+        <a href="bombillas.html" class="related-card">
+          <img src="assets/bombilla.png" alt="Bombillas">
+          <h3>BOMBILLAS</h3>
+          <p>Acero inoxidable de calidad</p>
+        </a>
+        <a href="combos.html" class="related-card">
+          <img src="assets/combo.png" alt="Combos">
+          <h3>COMBOS</h3>
+          <p>Pack completo de mate</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><img src="assets/logo.png" alt="Falta el Mate"><p>Una pasión que nos une.</p></div>
+    <div><h4>CONTACTO</h4><a href="mailto:faltaelmate@gmail.com">faltaelmate@gmail.com</a><a href="tel:+542984155752">2984-155-752</a></div>
+    <div><h4>ENVÍOS</h4><p>Todo el país, Argentina</p><p>Origen: General Roca, Río Negro</p></div>
+    <div><h4>SEGUINOS</h4><p>Falta el Mate</p><p>Próximamente redes sociales</p></div>
+  </footer>
+  <div class="copyright">© <span id="year"></span> Falta el Mate · General Roca, Río Negro, Argentina</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
