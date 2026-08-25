@@ -274,7 +274,8 @@
             </div>
           </div>
 
-          <button type="submit" class="checkout-submit">Confirmar pedido →</button>
+          <button type="submit" class="checkout-submit" id="checkoutSubmit">Pagar con Mercado Pago →</button>
+          <p id="checkoutMessage" style="display:none;margin:12px 0 0;font-size:13px;color:#b5473f;"></p>
         </form>
 
         <aside class="order-summary">
@@ -307,6 +308,7 @@
 
   <script src="script.js"></script>
   <script src="cart.js"></script>
+  <script src="mp-config.js"></script>
   <script>
     const productos = {
       'clasica-plateada': { name: 'Bombilla Clásica Plateada', category: 'Acero inoxidable 100%', price: 450 },
@@ -398,7 +400,32 @@
       document.getElementById('summaryTotal').textContent = '$' + total;
     }
 
-    document.getElementById('checkoutForm').addEventListener('submit', function (e) {
+    const MP_API_BASE_URL = window.MP_API_BASE_URL || 'http://localhost:3000';
+
+    function showCheckoutMessage(message, isError = true) {
+      const messageEl = document.getElementById('checkoutMessage');
+      if (!message) {
+        messageEl.style.display = 'none';
+        messageEl.textContent = '';
+        return;
+      }
+      messageEl.textContent = message;
+      messageEl.style.display = 'block';
+      messageEl.style.color = isError ? '#b5473f' : '#2e382a';
+    }
+
+    function showStatusFromPayment() {
+      const status = getParam('status');
+      if (status === 'success') {
+        showCheckoutMessage('Pago aprobado. Gracias por tu compra.', false);
+      } else if (status === 'pending') {
+        showCheckoutMessage('Tu pago está pendiente de confirmación.', false);
+      } else if (status === 'failure') {
+        showCheckoutMessage('El pago no se pudo completar. Podés intentar nuevamente.');
+      }
+    }
+
+    document.getElementById('checkoutForm').addEventListener('submit', async function (e) {
       e.preventDefault();
       if (!this.checkValidity()) {
         this.reportValidity();
@@ -406,27 +433,69 @@
       }
       if (currentItems.length === 0) return;
 
+      const submitButton = document.getElementById('checkoutSubmit');
+      const originalButtonText = submitButton.textContent;
+      submitButton.disabled = true;
+      submitButton.textContent = 'Creando pago...';
+      showCheckoutMessage('');
+
       const nombre = document.getElementById('nombre').value;
       const apellido = document.getElementById('apellido').value;
       const email = document.getElementById('email').value;
       const telefono = document.getElementById('telefono').value;
 
-      const resumenProductos = currentItems.map(item => item.name + ' (x' + item.quantity + ')').join(', ');
+      const payload = {
+        items: currentItems.map(item => ({
+          title: item.name,
+          quantity: item.quantity,
+          unit_price: Number(item.price)
+        })),
+        payer: {
+          first_name: nombre,
+          last_name: apellido,
+          email,
+          phone: {
+            number: telefono
+          }
+        },
+        shipping: {
+          domicilio: document.getElementById('domicilio').value,
+          localidad: document.getElementById('direccion').value,
+          piso: document.getElementById('piso').value || ''
+        }
+      };
 
-      document.getElementById('confirmName').textContent = nombre + ' ' + apellido;
-      document.getElementById('confirmProduct').textContent = resumenProductos;
-      document.getElementById('confirmContact').textContent = email + ' / ' + telefono;
+      try {
+        const response = await fetch(MP_API_BASE_URL + '/api/create-preference', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
 
-      if (fromCart) {
-        clearCart();
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || 'No se pudo crear el pago.');
+        }
+
+        if (fromCart) {
+          clearCart();
+        }
+
+        window.location.href = data.init_point;
+      } catch (error) {
+        showCheckoutMessage(error.message || 'Ocurrió un error al iniciar el pago.');
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
       }
-
-      document.getElementById('checkoutGrid').style.display = 'none';
-      document.getElementById('confirmationBox').style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    document.addEventListener('DOMContentLoaded', loadSummary);
+    document.addEventListener('DOMContentLoaded', function () {
+      loadSummary();
+      showStatusFromPayment();
+    });
   </script>
 </body>
 </html>
