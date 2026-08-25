@@ -265,16 +265,22 @@
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="direccion">Localidad / Provincia</label>
-              <input type="text" id="direccion" name="direccion" placeholder="General Roca, Río Negro" required>
+              <label for="localidad">Localidad</label>
+              <input type="text" id="localidad" name="localidad" placeholder="General Roca" required>
             </div>
             <div class="form-group">
+              <label for="provincia">Provincia</label>
+              <input type="text" id="provincia" name="provincia" placeholder="Río Negro" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full">
               <label for="piso">Piso / Departamento (opcional)</label>
               <input type="text" id="piso" name="piso" placeholder="Piso 3, Depto B">
             </div>
           </div>
 
-          <button type="submit" class="checkout-submit" id="checkoutSubmit">Pagar con Mercado Pago →</button>
+          <button type="submit" class="checkout-submit" id="checkoutSubmit">Continuar con el pago →</button>
           <p id="checkoutMessage" style="display:none;margin:12px 0 0;font-size:13px;color:#b5473f;"></p>
         </form>
 
@@ -460,7 +466,8 @@
         },
         shipping: {
           domicilio: document.getElementById('domicilio').value,
-          localidad: document.getElementById('direccion').value,
+          localidad: document.getElementById('localidad').value,
+          provincia: document.getElementById('provincia').value,
           piso: document.getElementById('piso').value || ''
         }
       };
