@@ -196,7 +196,7 @@
 
     <nav class="nav" id="mainNav">
       <a href="index.html#inicio">INICIO</a>
-      <a href="index.html#productos">PRODUCTOS</a>
+      <a href="productos.html">PRODUCTOS</a>
       <a href="index.html#nosotros">NOSOTROS</a>
       <a href="index.html#faq">PREGUNTAS FRECUENTES</a>
       <a href="index.html#contacto">CONTACTO</a>
@@ -381,7 +381,7 @@
       itemsContainer.innerHTML = '';
 
       if (currentItems.length === 0) {
-        itemsContainer.innerHTML = '<p style="color:#888;font-size:14px;">Tu carrito está vacío. <a href="index.html#productos" style="color:#2e382a;font-weight:700;">Ver productos</a></p>';
+        itemsContainer.innerHTML = '<p style="color:#888;font-size:14px;">Tu carrito está vacío. <a href="productos.html" style="color:#2e382a;font-weight:700;">Ver productos</a></p>';
         document.getElementById('summaryTotal').textContent = '$0';
         document.querySelector('.checkout-submit').disabled = true;
         return;
