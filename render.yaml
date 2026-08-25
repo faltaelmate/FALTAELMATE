@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: falta-el-mate-mp-api
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: MP_ACCESS_TOKEN
+        sync: false
+      - key: PUBLIC_STORE_URL
+        value: https://faltaelmate.github.io/FALTAELMATE
+      - key: CORS_ORIGINS
+        value: https://faltaelmate.github.io
