@@ -1,0 +1,16 @@
+{
+    "name": "falta-el-mate-mp-backend",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Backend para crear pagos de Mercado Pago",
+    "main": "mp-server.js",
+    "scripts": {
+          "start": "node mp-server.js"
+    },
+    "dependencies": {
+          "cors": "^2.8.5",
+          "dotenv": "^16.4.5",
+          "express": "^4.21.1",
+          "mercadopago": "^2.3.0"
+    }
+}
