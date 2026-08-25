@@ -1,2 +1,2 @@
-// Reemplaza esta URL cuando publiques el backend en Render o Railway.
-window.MP_API_BASE_URL = 'http://localhost:3000';
+// Backend de Mercado Pago desplegado en Render.
+window.MP_API_BASE_URL = 'https://falta-el-mate-mp-api.onrender.com';
